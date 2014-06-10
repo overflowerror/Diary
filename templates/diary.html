@@ -10,7 +10,7 @@
 	<div class="dot centered">
 		<div id="mainContainer">
 			<div id="header">
-				<h1>Diary {{ diary.name }}</h1>
+				<h1><a href="//github.com/benaryorg/Diary">Diary {{ diary.name }}</a></h1>
 				<div id="logout">
 					<a href="{{ url_for('logout') }}">Logout</a><br />
 					<a href="{{ url_for('index') }}">Diary-List</a>
@@ -19,16 +19,14 @@
 			<div id="contentContainer">
 				<form action="{{ url_for('addentry',name=diary.name) }}" method="POST">
 					Add new entry:<br />
-					<textarea name="text"></textarea><br />
+					<textarea name="text" style="width:99%;height:150px;" required autofocus></textarea><br/>
 					<input type="submit">
 				</form>
 				<div id="listing">
 					{% for e in entries %}
 						<div>
 							<div>{{ e.date }}</div>
-							<p>
-								{{ e.text }}
-							</p>
+							<p>{{ e.text }}</p>
 						</div>
 					{% endfor %}
 				</div>
